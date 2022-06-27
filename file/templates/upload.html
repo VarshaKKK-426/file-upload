@@ -1,0 +1,18 @@
+{% if messages %}
+        
+{% for message in messages %}
+    
+<div class = "alert alert-{{ messages.tags}}" role="alert">
+<p {% if messages.tags %} class=""{% endif %}> {{ message}} </p>
+</div>
+{% endfor %}
+{% endif %}
+<form method="post" enctype="multipart/form-data">
+
+{% csrf_token %}
+<input type="file" name="myfile">
+<input type="text" name="target_currency" placeholder="Target currency">
+<input type="text" name="exchange_rate" placeholder="Target currency Exchange Rate">
+<button type="submit">Upload</button>
+<h2>Please Upload csv File</h2>
+</form>
